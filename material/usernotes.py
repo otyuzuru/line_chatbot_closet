@@ -37,7 +37,7 @@ while True:
     
 
     for fn in files:
-        if not fn == ".ipynb_checkpoints" or 'readme.txt':
+        if not fn == ".ipynb_checkpoints" and not fn == 'readme.txt':
             
 
             if os.path.isfile("/home/jovyan/work/images/userdate/" + fn + "/" + fn.split('_')[1] + ".txt"):
