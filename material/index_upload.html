@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>我的明星臉</title>
+    <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/orwz3h6f9y9xeby/image_upload.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/wBgidzO.png" type="image/png" />
+<script type="text/javascript">
+var fileReader = new FileReader();
+var filterType = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+var compressedData;
+
+fileReader.onload = function (event) {
+  var image = new Image();
+
+  image.onload=function(){
+      document.getElementById("original-Img").src=image.src;
+      var canvas=document.createElement("canvas");
+      var context=canvas.getContext("2d");
+      canvas.width=image.width/4;
+      canvas.height=image.height/4;
+      context.drawImage(image,
+          0,
+          0,
+          image.width,
+          image.height,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+      );
+        compressedData = canvas.toDataURL();
+      document.getElementById("upload-Preview").src = compressedData;
+      document.getElementById('compressed').value = compressedData;
+  }
+  image.src=event.target.result;
+};
+
+var loadImageFile = function () {
+  var uploadImage = document.getElementById("upload-Image");
+
+  //check and retuns the length of uploded file.
+  if (uploadImage.files.length === 0) {
+    return;
+  }
+
+  //Is Used for validate a valid file.
+  var uploadFile = document.getElementById("upload-Image").files[0];
+  if (!filterType.test(uploadFile.type)) {
+    alert("Please select a valid image.");
+    return;
+  }
+
+  fileReader.readAsDataURL(uploadFile);
+}
+</script>
+</head>
+
+<body onload="loadImageFile();">
+<center>
+   <form action='/upload' method='post' enctype='multipart/form-data'>
+        <input id="upload-Image" type="file" accept=".png, .jpg, .jpeg" onchange="loadImageFile();" /><label for="file-upload" class="custom-file-upload"></label><p>
+       <input type="hidden" value={{line_id}} name="line_id">
+       <input id="compressed" type=hidden name = "uploaded_file"/>
+       <input type="image" src="https://i.imgur.com/DIq1pCW.png" border="0" alt="Submit" style="width: 400px"/><p>
+        <font face="monospace" size="6">圖片上傳及分析可能需要大約15秒，請稍待片刻，謝謝！</font><p>
+        <font face="monospace" size="5">上傳圖片預覽:</font><p>
+       <img id="original-Img" width="750"/><p>
+       <img id="upload-Preview" style="display: none;"/>
+  </form>
+</center>
+</body>
+</html>

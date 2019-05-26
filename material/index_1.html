@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" charset="UTF-8">
+        <title>我的智能衣櫃之加入會員</title>
+        <link rel="shortcut icon" href="https://i.imgur.com/wBgidzO.png" type="image/png" />
+        <style>
+            body {
+            background-image:url(https://i.imgur.com/JDmKnsO.png);
+            background-repeat:no-repeat;
+/*             background-position: center; */
+            background-color:#ffffff;
+            background-size: 100%;
+            }
+         </style>
+    </head>
+    <body>
+    <center>
+        <form method="post" action="/sucess">
+<!--              <font face="monospace" style="font-size:100pt; color:#CD6900;" >加入會員</font><p> -->
+            <input type="hidden" value={{line_id}} name="line_id">
+           <font face="monospace" style="font-size:35pt;">請問您的稱呼為?</font><font style="color:#FF0000; font-size:20pt;" face="monospace"> *必填</font><p><input type="text" style="font-size:25pt;" name="name" placeholder="請填入稱呼" required/><p>
+           <font face="monospace" style="font-size:35pt;">請問您的電子郵件地址為?</font><p><input type="email" style="font-size:25pt;" name="email" placeholder="例如:email@example.com"/><p>
+           <font face="monospace" style="font-size:35pt;">請問您的手機號碼為?</font><p><input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" style="font-size:25pt;" maxlength="10" name="phone" placeholder="例如:0987654321"/><p>
+            <font face="monospace" style="font-size:35pt;">請問您的性別為?</font><font style="color:#FF0000; font-size:20pt;" face="monospace"> *必填</font><p>
+            <select style="font-size:25pt;" name="sex" required>
+                <option value="" selected="selected">請選擇</option>
+            　<option value="男">男</option>
+            　<option value="女">女</option>
+                <option value="其他">其他</option>
+            </select><p>
+            <font face="monospace" style="font-size:35pt;">請問您的年齡介於?</font><p>
+            <select style="font-size:25pt;" name="age">
+                <option value="" selected="selected">請選擇</option>
+            　<option value="<=10">10歲以下</option>
+            　<option value="11~20">11~20</option>
+                <option value="21~30">21~30</option>
+                <option value="31~40">31~40</option>
+                <option value="41~50">41~50</option>
+                <option value="51~60">51~60</option>
+                <option value="61~70">61~70</option>
+                <option value="71~80">71~80</option>
+                <option value="81<=">81歲以上</option>
+            </select><p>
+            <font face="monospace" style="font-size:35pt;">請問您的身高介於?</font><font face="monospace" style="font-size:15pt;">　(單位:公分)</font><p>
+            <select style="font-size:25pt;" name="height">
+                <option value="" selected="selected">請選擇</option>
+            　<option value="<=150">150以下</option>
+            　<option value="151~155">151~155</option>
+                <option value="156~160">156~160</option>
+                <option value="161~165">161~165</option>
+                <option value="166~170">166~170</option>
+                <option value="171~175">171~175</option>
+                <option value="176~180">176~180</option>
+                <option value="181~185">181~185</option>
+                <option value="186~190">186~190</option>
+                <option value="191<=">191以上</option>
+            </select><p>
+            <font face="monospace" style="font-size:35pt;">請問您的體重介於?</font><font face="monospace" style="font-size:15pt;"> (單位:公斤)</font><p>
+            <select style="font-size:25pt;" name="weight">
+                <option value="" selected="selected">請選擇</option>
+            　<option value="<=40">40以下</option>
+            　<option value="41~50">41~50</option>
+                <option value="51~60">51~60</option>
+                <option value="61~70">61~70</option>
+                <option value="71~80">71~80</option>
+                <option value="81~90">81~90</option>
+                <option value="91~100">91~100</option>
+                <option value="101~110">101~110</option>
+                <option value="111~120">111~120</option>
+                <option value="121<=">121以上</option>
+            </select><p>
+            <input type="image" src="https://i.imgur.com/DIq1pCW.png" border="0" alt="Submit" style="width: 300px"/>
+        </form>
+    </center>
+    </body>
+    </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <center> 
+    <head>
+        <meta charset="UTF-8">
+        <title>我的智能衣櫃</title>
+        <link rel="shortcut icon" href="https://i.imgur.com/wBgidzO.png" type="image/png" />
+        <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            body {
+            background-image:url(https://i.imgur.com/JDmKnsO.png);
+/*             background-repeat:no-repeat; */
+/*             background-position: center; */
+            background-color:#ffffff;
+            background-size: 100%;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/y63pa2xsbznaxrd/custom_select.css">
+    </head>
+    <body>
+        <p style=font-size:1.2cm>
+        <form  action="/userdb">
+            <input type="hidden" value={{name}} name="name">
+            <!--kind:<input type="text" name="kind"/>-->
+            <select name="kind" style="width:460px;height:90px;font-size:52px;" onchange="this.form.submit()">
+               <option value="None">請選擇衣服種類</option>
+            　<option value="T-shirt">T-shirt</option>
+            　<option value="西裝外套" >西裝外套</option>
+              <option value="襯衫">襯衫</option>
+              <option value="洋裝">洋裝</option>
+              <option value="背心">背心</option>
+              <option value="all">全部</option>
+            </select>
+
+<!--             <input type="submit" value="搜尋" style="width:240px;height:80px;font-size:40px;"> -->
+        </form>
+        <p style=font-size:1.2cm>
+
+        <table style="width:100%">
+
+        <tr>
+            <th style=font-size:1.2cm>衣服</th>
+            <th style=font-size:1.2cm>種類</th>
+        </tr>
+    <tbody>
+      {% for book in books %}
+        <tr>
+
+            <!--<td>{{ book.name}}</td>-->
+            <td align="center"><img width="500" src="{{book.name}}"></td>
+            <td align="center" style=font-size:1.2cm >{{ book.author}}</td>
+        </tr>
+      {% endfor %}
+        </table>
+    </body>
+      </center> 
+    </html>

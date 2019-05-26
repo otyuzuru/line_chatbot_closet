@@ -1,0 +1,36 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>明星臉分析</title>
+        <link rel="shortcut icon" href="https://i.imgur.com/wBgidzO.png" type="image/png" />
+        <style>
+        </style>
+    </head>
+    <body>
+        <center>
+           <form>
+       <img src="{{face}}" width = "750"> <p>
+        <font face="monospace" size="7">經過分析，您跟底下明星有幾分相似：</font><p>
+       <table>
+        <tr>
+        <td>
+            <center>
+             <font face="monospace" size="6">您跟{{random_male[0:-4]}}有{{male_similarity}}%相像！</font><p>
+            <img src="images/male/{{random_male}}" width="450"><p>
+            <a href="{{website_male}}">  <img src="https://i.imgur.com/s8JF5ug.png" width="150"/></a><p>
+            </center>
+        </td>
+        <td>
+            <center>
+            <font face="monospace" size="6">您跟{{random_female[0:-4]}}有{{female_similarity}}%相像！</font><p>
+            <img src="images/female/{{random_female}}" width="450"><p>
+            <a href="{{website_female}}">  <img src="https://i.imgur.com/s8JF5ug.png" width="150"/></a><p>
+            </center>
+        </td>
+        </tr>
+        </table>
+    </form>
+            </center>
+    </body>
+</html>
